@@ -340,7 +340,7 @@ def priormap(theta):
         #P3 must be greater than or equal P2
         phi[pc+nc+4] = (theta[pc+nc+4] * (np.log10(press[-1]) - phi[pc+nc+2])) + phi[pc+nc+3]
         #T3
-        phi[pc+nc+5] = (theta[pc+4+n5] * 3000.) + 1500.
+        phi[pc+nc+5] = (theta[pc+nc+5] * 3000.) + 1500.
         return phi
     
     elif (proftype == 7):
@@ -851,7 +851,7 @@ def modelspec(theta,args=None, gnostics=0):
     elif (proftype == 9):
         intemp = prof
     else:
-        raise ValueError("not valid profile type %proftype" % (char, string))
+        raise ValueError("not valid profile type {}".format(proftype)
 
     # set the profile
     temp = TPmod.set_prof(proftype,coarsePress,press,intemp)
